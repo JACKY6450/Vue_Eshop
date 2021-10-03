@@ -1,4 +1,4 @@
-# e_store
+# Take a rest 網路商城
 
 ## Project setup
 ```
