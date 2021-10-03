@@ -1,0 +1,130 @@
+<template>
+    <div class="prodsingle">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="pt-3">
+                <ul class="breadcrumb bg-white h5 px-2">
+                    <li class="breadcrumb-item "><a class="text-dark" href="/">Home</a></li>
+                    <li class="breadcrumb-item "><a class="text-dark" href="/store">賣場</a></li>
+                    <li class="breadcrumb-item text-cyan active" aria-current="page">{{product.title}}</li>
+                </ul>
+            </nav>
+            <div class="row pb-5 ">
+                <div class="prodimg col-md-7">
+                    <img :src= "product.imageUrl" alt="" width="100%" height="100%">
+                </div>
+                <div class="prodcont col-md-5">
+                    <h1 class="text-cyan ">{{product.title}}</h1>
+                    <div class="proddescribe" style="height: 80px">
+                        <p class="describecont h6">
+                           {{product.content}}
+                        </p>
+                    </div>
+                    <div class="price py-2">
+                    <!-- <div class="h5">2,800 元</div> -->
+                        <del class="h6 text-success ">原價: {{product.origin_price}}</del>
+                        <div class="h5 mt-3">特價: {{product.price}}</div>
+                    </div>
+                    <div class="number my-1 mb-3">
+                        <label class="h5">請選擇數量:</label>
+                        <div class="countnumber d-flex align-items: center" style="height: 40px">
+                            <button class="btn btn-outline-cyan" style="border-radius: 5px 0px 0px 5px;" @click= "addcount(-1)">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                            <input type="number" class="border border-cyan text-center h5"  style="width: 160px; height:100%"
+                            :value= "count">
+                            <button class="btn btn-outline-cyan" style="border-radius: 0px 5px 5px 0px;" @click= "addcount(1)">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="py-2">
+                        <button class="btn btn-teal mr-4" @click = "gotoorder()">前往結帳</button>
+                        <button class="btn btn-cyan" @click= "addtocart(product.id, count)">加入購物車</button>
+                    </div>
+                </div>
+                <div class="totalprice col-md-12 h4 text-right text-danger mt-3">
+                    總金額: ${{total}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            product: {},
+            count: 1,
+            // number: 1
+        }
+    },
+    computed:{
+        total(){
+            // console.log(this.count);
+            return this.count * this.product.price;
+        }
+    },
+    methods:{
+        getproduct(id){
+            // console.log(id.productId);
+            const api = 'https://vue-course-api.hexschool.io/api/jackyyenhan/product/'+id.productId;
+            this.$store.dispatch('updateloading', true);
+            this.$http.get(api).then(response => {
+                console.log(response.data);
+                this.product = response.data.product;
+                this.$store.dispatch('updateloading', false);
+            })
+        },
+        addcount(num){
+            if((this.count+num)<1) return;
+            this.count += num;
+        },
+        addtocart(id, qty = 1){
+            this.$store.dispatch('addtocart', {id, qty});  
+        },
+        gotoorder(){
+            this.$router.push('/customerorder');
+        }
+    },
+    created(){
+        const productid = this.$route.params;
+        // console.log(typeof(productid));
+        this.getproduct(productid);
+    }
+}
+</script>
+
+<style scoped>
+    .prodsingle{
+        margin-top: 4rem;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+    }
+    .container{
+        margin: auto;
+    }
+    .prodimg{
+        height: 370px;
+        
+    }
+    .btn{
+        border-radius: 20px;
+    }
+    .describecont{
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+        overflow: hidden;
+    }
+    #countchoice{
+        border-radius: 8px;
+    }
+</style>
