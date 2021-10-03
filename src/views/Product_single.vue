@@ -61,6 +61,9 @@ export default {
         }
     },
     computed:{
+        cart(){
+            return this.$store.state.cart;
+        },
         total(){
             // console.log(this.count);
             return this.count * this.product.price;
@@ -82,7 +85,26 @@ export default {
             this.count += num;
         },
         addtocart(id, qty = 1){
-            this.$store.dispatch('addtocart', {id, qty});  
+            for(let i=0;i<this.cart.carts.length;i++){
+                if(this.cart.carts[i].product_id === id){
+                    // this.cart.carts[i].qty += qty;
+                    qty = qty + this.cart.carts[i].qty;
+                    console.log(this.cart.carts[i].id,this.cart.carts[i].product_id);
+                    this.sameid = this.cart.carts[i].id;
+                    this.same = true;
+                    break
+                }
+            }
+            if(this.same){
+                let cartid = this.sameid;
+                this.same = false;
+                this.$store.dispatch('addtocart1', {cartid, id, qty})
+                // this.$store.dispatch('removecartitem', this.sameid);
+                // this.$store.dispatch('addtocart', {id, qty});
+            }
+            else{
+                this.$store.dispatch('addtocart', {id, qty});
+            }  
         },
         gotoorder(){
             this.$router.push('/customerorder');

@@ -1,16 +1,16 @@
 <template>
 <div class="customerorder">
   <div class="container row py-5">
-    <div class="purchaseli col-md-6">
+    <div class=" col-md-7">
       <h4 class="my-2 font-weight-bold">購買品項</h4>
-      <div class="p-5 bg-lightcyan " style="border-radius: 10px">
+      <div class="purchaseli p-5 bg-lightcyan " style="border-radius: 10px">
          <table class="table ">
           <thead>
             <tr>
-                <th width = "80">圖片</th>
+                <th width = "80">產品縮圖</th>
                 <th>產品名稱</th>
-                <th width = "60">數量</th>
-                <th width = "120">價格</th>
+                <th width = "60" class="text-center">數量</th>
+                <th width = "100" class="text-center">價格</th>
                 <th width = "60"></th>
             </tr>
           </thead>
@@ -22,7 +22,7 @@
               <td class="align-middle h5"> 
                   {{item.product.title}} 
               </td>
-              <td class="text-center align-middle h6">
+              <td class="text-center align-middle h6 text-center">
                   {{item.qty}} 
               </td>
               <td class="text-right align-middle h6"> 
@@ -50,7 +50,7 @@
       </div>
      
     </div>
-    <div class="purchaserdata col-md-6">
+    <div class="purchaserdata col-md-5">
         <h4 class="font-weight-bold my-2">請填寫購買人資訊</h4>
         <form class="mt-4" @submit.prevent = "createorder()">
           <div class="form-group">
@@ -171,5 +171,9 @@ export default {
   }
   .form-control{
     margin-bottom: 0.5rem;
+  }
+  .purchaseli{
+    height: 630px;
+    overflow: auto;
   }
 </style>

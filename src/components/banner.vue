@@ -11,8 +11,11 @@
                 <img alt="Vue logo" src="../assets/Sports_category.jpg" width="100%"> 
                 <div class="container">
                     <div class="carousel-caption text-center">
-                        <h3>慶祝開幕</h3>
-                        <p class="h4">全館商品特價出售趕快來搶購!</p>
+                        <h2>You need to take a rest 
+                            <br> 
+                            In your busy life 
+                        </h2>
+                        <p class="h4">慶祝開幕全館商品特價出售趕快來搶購!</p>
                         <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
                     </div>
                 </div>
@@ -21,8 +24,11 @@
                 <img alt="Vue logo" src="../assets/dessert_category.jpg" width="100%">
                 <div class="container">
                     <div class="carousel-caption text-center">
-                        <h3>慶祝開幕</h3>
-                        <p class="h4">全館商品特價出售趕快來搶購!</p>
+                        <h2>You need to take a rest 
+                            <br> 
+                            In your busy life 
+                        </h2>
+                        <p class="h4">慶祝開幕全館商品特價出售趕快來搶購!</p>
                         <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
                     </div>
                 </div>
@@ -31,8 +37,11 @@
                 <img alt="Vue logo" src="../assets/entertaiment_category.jpg" width="100%">
                <div class="container">
                     <div class="carousel-caption text-center">
-                        <h3>慶祝開幕</h3>
-                        <p class="h4">全館商品特價出售趕快來搶購!</p>
+                        <h2>You need to take a rest 
+                            <br> 
+                            In your busy life 
+                        </h2>
+                        <p class="h4">慶祝開幕全館商品特價出售趕快來搶購!</p>
                         <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
                     </div>
                 </div>
