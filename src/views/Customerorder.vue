@@ -1,21 +1,23 @@
 <template>
 <div class="customerorder">
   <div class="container row py-5">
-    <div class=" col-md-7">
-      <h4 class="my-2 font-weight-bold">購買品項</h4>
-      <div class="purchaseli p-5 bg-lightcyan " style="border-radius: 10px">
-         <table class="table ">
+    <div class=" col-md-7" >
+      <h4 class="py-2 px-2 mb-0 bg-cyan text-white" style="border-radius: 5px 5px 0 0">
+        購買商品明細
+      </h4>
+      <div class="purchaseli bg-white ">
+        <table class="table table-borderless px-2 ">
           <thead>
-            <tr>
+            <tr class="border-bottom">
                 <th width = "80">產品縮圖</th>
                 <th>產品名稱</th>
                 <th width = "60" class="text-center">數量</th>
                 <th width = "100" class="text-center">價格</th>
-                <th width = "60"></th>
+                <th width = "100"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for = " item in cart.carts" :key = "item.id">
+          <tbody >
+            <tr class="border-bottom" v-for = " item in cart.carts" :key = "item.id">
               <td> 
                   <img :src= "item.product.imageUrl" alt="" width="80" height="80">
               </td>
@@ -34,25 +36,19 @@
                   </button>
               </td>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="h5">
-                總計
-                </td>
-              <td class="h5">
-                {{cart.total}}
-              </td>
-            </tr>
           </tbody>
-      </table>
+        </table>
+        <div class="d-flex justify-content-end pb-3 px-2 h5">
+          <span class="mr-2">總計:</span>
+          <span>{{cart.total}} 元</span>
+        </div>
       </div>
-     
     </div>
     <div class="purchaserdata col-md-5">
-        <h4 class="font-weight-bold my-2">請填寫購買人資訊</h4>
-        <form class="mt-4" @submit.prevent = "createorder()">
+        <h4 class="py-2 px-2 mb-0 bg-cyan text-white" style="border-radius: 5px 5px 0 0">
+          填寫購買人資訊
+        </h4>
+        <form class="py-2 px-2 bg-white" @submit.prevent = "createorder()">
           <div class="form-group">
             <label for="useremail">Email</label>
             <input type="email" class="form-control" name="email" id="useremail"
@@ -96,7 +92,7 @@
             <textarea name="" id="comment" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
           </div>
           <div class="text-right">
-            <button class="btn btn-danger">送出訂單</button>
+            <button class="btn btn-cyan">送出訂單</button>
           </div>
         </form> 
     </div>
@@ -171,9 +167,5 @@ export default {
   }
   .form-control{
     margin-bottom: 0.5rem;
-  }
-  .purchaseli{
-    height: 630px;
-    overflow: auto;
   }
 </style>

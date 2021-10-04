@@ -1,7 +1,11 @@
 <template>
     <div class="checkout container">
         <div class="py-4 px-5 row justify-content-center">
-            <form class="col-md-8"  @submit.prevent="payorder()">
+            
+            <form class="col-md-8 bg-white px-0"  @submit.prevent="payorder()">
+                 <h4 class="py-2 px-2 mb-0 bg-cyan text-white" style="border-radius: 5px 5px 0 0">
+                    以下為您的訂單資訊
+                </h4>
                 <table class="table">
                     <thead>
                         <tr>
@@ -55,36 +59,13 @@
                 <div class="text-right" v-if="order.is_paid === false">
                     <button class="btn btn-danger">確認付款去</button>
                 </div>
-
             </form>
         </div>
-        <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document" >
-                <div class="modal-content border-0">
-                    <div class="modal-header bg-success text-white">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            <span>付款成功</span>
-                        </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body h6">
-                        感謝您這次的購物我們將盡快處理您的訂單
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary" @click = "close()">確認</button>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-success text-white">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalCenterTitle">付款成功!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

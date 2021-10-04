@@ -18,36 +18,6 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="sellitem col-md-3">
-                    <a href="" class="text-dark">
-                        <div class="card" >
-                            <img class="card-img-top" src="" height="200px">
-                            <div class="card-body">
-                                <h3 class="card-title">城市街道</h3>
-                                <p class="card-text" style="color: #003377">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex odio hic provident 
-                                    possimus unde pariatur a obcaecati quae sint nobis?.
-                                </p>
-                                <div class="h5 text-right " style="color: indigo">特價: $500</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="sellitem col-md-3">
-                    <a href="" class="text-dark">
-                        <div class="card" >
-                            <img class="card-img-top" src="" height="200px">
-                            <div class="card-body">
-                                <h3 class="card-title">人文氣息</h3>
-                                <p class="card-text" style="color: #003377">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex odio hic provident 
-                                    possimus unde pariatur a obcaecati quae sint nobis?.
-                                </p>
-                                <div class="h5 text-right " style="color: indigo">特價: $500</div>
-                            </div>
-                        </div>
-                    </a>
-                </div> -->
             </div>
             <div class="aboutus text-center mt-5" data-aos="fade-down">
                 <h1>About Us</h1>

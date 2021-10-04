@@ -8,7 +8,7 @@
                     <li class="breadcrumb-item text-cyan active" aria-current="page">{{product.title}}</li>
                 </ul>
             </nav>
-            <div class="row pb-5 ">
+            <div class="row pb-2 ">
                 <div class="prodimg col-md-7">
                     <img :src= "product.imageUrl" alt="" width="100%" height="100%">
                 </div>
@@ -46,6 +46,25 @@
                     總金額: ${{total}}
                 </div>
             </div>
+            <hr class="featurette-divider bg-cyan">
+            <h4 class="px-2">您可能也會喜歡</h4>
+            <div class="row px-2">
+                <div class="sellitem col-md-3 mb-3" v-for = "item in maybelike" :key = "item.id">
+                    <a :href = "'/productsingle/'+item.id" class="text-dark text-decoration-none">
+                        <div class="card border-0">
+                            <img class="card-img-top" :src = "item.imageUrl" height="200px">
+                            <div class="card-body" >
+                                <h4 class="card-title">{{ item.title }}</h4>
+                                <div class="text-right ">
+                                    <del class="h6" style="color: green">原價: ${{item.origin_price}}</del>
+                                    <div class="h5 mt-2" style="color: indigo">特價: ${{ item.price }}</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -56,6 +75,8 @@ export default {
     data(){
         return{
             product: {},
+            products: [],
+            maybelike: [],
             count: 1,
             // number: 1
         }
@@ -77,8 +98,36 @@ export default {
             this.$http.get(api).then(response => {
                 console.log(response.data);
                 this.product = response.data.product;
-                this.$store.dispatch('updateloading', false);
+                this.getproducts();
             })
+        },
+        getproducts(){ //ES6 參數預設值 
+            const api = 'https://vue-course-api.hexschool.io/api/jackyyenhan/products/all'
+            this.$store.dispatch('updateloading', true);
+            this.$http.get(api).then(response => {
+                console.log(response.data);
+                this.products = response.data.products;
+                this.maybelikehandler();
+                this.$store.dispatch('updateloading', false);
+            });
+        },
+        maybelikehandler(){
+            let arr = [];
+            arr = this.products.filter((element) => {
+                if(this.product.title != element.title){
+                    if(this.product.category === element.category) return element;
+                }
+            })
+            for(let i=0; i<3; i++){
+                if(arr.length === 0) break;
+                let randomid = Math.floor(Math.random()*arr.length);
+                this.maybelike.push(arr[randomid]);
+                arr.splice(randomid, 1);
+            }
+            this.maybelike.forEach((element) => {
+                console.log(element.title);
+            });
+            
         },
         addcount(num){
             if((this.count+num)<1) return;
@@ -121,6 +170,7 @@ export default {
 <style scoped>
     .prodsingle{
         margin-top: 4rem;
+        background-color: white;
     }
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -148,5 +198,8 @@ export default {
     }
     #countchoice{
         border-radius: 8px;
+    }
+    .sellitem a:hover .card{
+        opacity: .8;
     }
 </style>
