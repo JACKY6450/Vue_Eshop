@@ -1,5 +1,6 @@
 # Take a rest 網路商城
-
+## 網頁功能
+### 前台
 ## Project setup
 ```
 npm install
