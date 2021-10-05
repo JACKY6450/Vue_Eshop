@@ -130,6 +130,10 @@ export default {
       this.$store.dispatch('removecartitem', id);
     },
     createorder(){
+      if(!this.cart.carts.length) {
+        alert('購物車是空的!!');
+        return;
+      }
       const url = 'https://vue-course-api.hexschool.io/api/jackyyenhan/order';
       const order = this.form;
       this.$store.dispatch('updateloading', true);

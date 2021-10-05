@@ -202,4 +202,9 @@ export default {
     .sellitem a:hover .card{
         opacity: .8;
     }
+    .card-title{
+        text-overflow: ellipsis; 
+        overflow:hidden;
+        white-space: nowrap;
+    }
 </style>

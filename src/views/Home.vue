@@ -7,9 +7,9 @@
         <a class="navbar-brand px-2 bg-cyan text-light" style="border-radius: 25px;" href="/">
           Take a rest mall 
         </a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button> -->
+        </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav w-100 justify-content-end">
             <li class="cart nav-item dropdown">
