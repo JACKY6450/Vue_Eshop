@@ -2,7 +2,7 @@
     <div class="store">
         <Banner />
         <div class="row my-4 container">
-            <div class="category col-md-3">
+            <div class="category col-md-3 mb-4">
                 <ul class="list-group h5" :class = "{ 'fixlist-group' : listfixtop}">
                     <!-- <li class="list-group-item active">ALL</li> -->
                     <li class="list-group-item list-group-item-action" 
@@ -76,6 +76,7 @@ export default {
             currentcategory: '全部商品',
             pointer: 0,
             scroll: 0,
+            showidth: null,
             listfixtop: false
         }
     },
@@ -181,8 +182,10 @@ export default {
         },
         scrollDs(){
             this.scroll = document.documentElement.scrollTop;
-            if(this.scroll > 750){
+            this.showidth = document.body.clientWidth;
+            if(this.scroll > 750 && this.showidth >= 768){
                 this.listfixtop = true;
+                // console.log(this.showidth);
             }
             else{
                 this.listfixtop = false

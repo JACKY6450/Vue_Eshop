@@ -11,6 +11,7 @@ import Productsingle from '../views/Product_single.vue'
 import Store from '../views/Store.vue'
 import About from '../views/About.vue'
 import Customerorder from '../views/Customerorder.vue'
+import Customerinformation from '../views/Customerinformation.vue'
 import Customercheckout from '../views/Customercheckout.vue'
 
 Vue.use(VueRouter)
@@ -46,6 +47,11 @@ const routes = [
         path: '/customerorder',
         name: 'Customerorder',
         component : Customerorder
+      },
+      {
+        path: '/customerinformation',
+        name: 'Customerinformation',
+        component : Customerinformation
       },
       {
         path: '/customercheckout/:orderId',
