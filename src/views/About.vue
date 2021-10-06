@@ -37,8 +37,8 @@
             <hr class="featurette-divider bg-cyan">
 
             <div class="row featurette " >
-                <div class="col-md-5 px-0" data-aos = "fade-right" >
-                    <img src="../assets/Sports_category.jpg" alt="" height="360px" style="border-radius: 5px;">
+                <div class="categorypic col-md-5 px-0" data-aos = "fade-right" >
+                    <img src="../assets/Sports_category.jpg" alt="" height="360px" >
                 </div>
                 <div class="col-md-7 py-3 order-md-1 d-flex flex-column justify-content-center" >
                     <div class="w-75 text-center" style="margin: auto; " data-aos="fade-left">
@@ -56,8 +56,8 @@
 
             <hr class="featurette-divider bg-cyan">
             <div class="row featurette ">
-                <div class="col-md-5 px-0 order-md-2" data-aos = "fade-left">
-                    <img src="../assets/entertaiment_category.jpg" alt="" height="360px" style="border-radius: 5px;">
+                <div class="categorypic col-md-5 px-0 order-md-2" data-aos = "fade-left">
+                    <img src="../assets/entertaiment_category.jpg" alt="" height="380px" >
                 </div>
                 <div class="col-md-7 py-3 order-md-1 d-flex flex-column justify-content-center" >
                     <div class="w-75 text-center" style="margin: auto; " data-aos="fade-right">
@@ -77,8 +77,8 @@
 
             <hr class="featurette-divider bg-cyan">
             <div class="row featurette ">
-                <div class="col-md-5 px-0" data-aos = "fade-down">
-                    <img src="../assets/dessert_category.jpg" alt="" height="360px" style="border-radius: 5px;">
+                <div class="categorypic col-md-5 px-0" data-aos = "fade-down">
+                    <img src="../assets/dessert_category.jpg" alt="" height="360px" >
                 </div>
                 <div class="col-md-7 py-3 order-md-1 d-flex flex-column justify-content-center">
                     <div class="w-75 text-center" style="margin: auto" data-aos="fade-up">
@@ -158,9 +158,9 @@ export default {
         transition: .3s;
     }
     .card:hover{
-        box-shadow: 5px 5px 5px 0px #cccccc;
-        width: 102%;
-        height: 102%;
+        box-shadow: 0px 3px 10px 3px #aaaaaa;
+        transform:scale(1.04, 1.04);
+        /* height: 104%; */
     }
     .productcont{
         display: -webkit-box;
@@ -203,7 +203,9 @@ export default {
         font-weight: bold;
         vertical-align: middle;
     }
-    
+    .categorypic{
+        box-shadow: 0px 5px 10px 2px ;
+    }
     .featurette-divider {
         margin: 5rem 0; /* Space out the Bootstrap <hr> more */
     }

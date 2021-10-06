@@ -55,9 +55,9 @@
                             <img class="card-img-top" :src = "item.imageUrl" height="200px">
                             <div class="card-body" >
                                 <h4 class="card-title">{{ item.title }}</h4>
-                                <div class="text-right ">
+                                <div class="text-right d-flex justify-content-between mt-3">
                                     <del class="h6" style="color: green">原價: ${{item.origin_price}}</del>
-                                    <div class="h5 mt-2" style="color: indigo">特價: ${{ item.price }}</div>
+                                    <div class="h6" style="color: indigo">特價: ${{ item.price }}</div>
                                 </div>
                                 
                             </div>

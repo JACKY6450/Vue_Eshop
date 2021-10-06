@@ -56,8 +56,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="text-right" v-if="order.is_paid === false">
-                    <button class="btn btn-danger">確認付款去</button>
+                <div class="text-right px-2" v-if="order.is_paid === false">
+                    <button class="btn btn-cyan">確認付款去</button>
                 </div>
             </form>
         </div>

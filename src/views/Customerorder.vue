@@ -9,15 +9,20 @@
         <table class="table table-borderless px-2 ">
           <thead>
             <tr class="border-bottom">
+                <th width = "80"></th>
                 <th width = "80">產品縮圖</th>
                 <th>產品名稱</th>
-                <th width = "60" class="text-center">數量</th>
-                <th width = "100" class="text-center">價格</th>
-                <th width = "100"></th>
+                <th width = "100" class="text-center">數量</th>
+                <th width = "120" class="text-center">價格</th>
             </tr>
           </thead>
           <tbody >
             <tr class="border-bottom" v-for = " item in cart.carts" :key = "item.id">
+              <td class="text-center align-middle">
+                  <button class="btn btn-outline-danger btn-sm " @click = "removecartitem(item.id)">
+                      <i class="fa fa-trash" aria-hidden="true"></i>
+                  </button>
+              </td>
               <td> 
                   <img :src= "item.product.imageUrl" alt="" width="80" height="80">
               </td>
@@ -30,18 +35,17 @@
               <td class="text-right align-middle h6"> 
                   ${{item.final_total}} 
               </td>
-              <td class="text-center align-middle">
-                  <button class="btn btn-outline-danger btn-sm " @click = "removecartitem(item.id)">
-                      <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-              </td>
+              
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="text-right h5">總計:</td>
+              <td class="text-right h5">{{cart.total}} 元</td>
             </tr>
           </tbody>
         </table>
-        <div class="d-flex justify-content-end pb-3 px-2 h5">
-          <span class="mr-2">總計:</span>
-          <span>{{cart.total}} 元</span>
-        </div>
       </div>
     </div>
     <div class="purchaserdata col-md-5">
