@@ -1,28 +1,9 @@
 <template>
     <div class="checkout container py-5">
-        <div class="step row">
-            <div class="col-md-4 ">
-                <div class="bg-cyan text-white text-center px-4 py-4 bg-lightcyan text-dark" style="border-radius: 8px">
-                    <div class="h5">STEP1</div>
-                    <div class="h6 mt-3" >確認購物清單</div>
-                </div>
-                </div>
-                <div class="col-md-4 ">
-                <div class="bg-cyan text-white text-center px-4 py-4 bg-lightcyan text-dark" style="border-radius: 8px">
-                    <div class="h5">STEP2</div>
-                    <div class="h6 mt-3" >填寫購買人資訊</div>
-                </div>
-                </div>
-                <div class="col-md-4 ">
-                <div class="bg-cyan text-white text-center px-4 py-4 " style="border-radius: 8px">
-                    <div class="h5">STEP3</div>
-                    <div class="h6 mt-3" >確認訂單&付款</div>
-                </div>
-            </div>
-        </div>
+        <Payprocedure :step = "currentstep"/>
         <div class="mt-5 px-5 row justify-content-center">
-            <form class="col-md-8 bg-white px-0"  @submit.prevent="payorder()">
-                 <h4 class="py-2 px-2 mb-0 bg-cyan text-white" style="border-radius: 5px 5px 0 0">
+            <form class="col-md-8 bg-white px-0 shadow-sm"  @submit.prevent="payorder()">
+                <h4 class="py-2 px-2 mb-0 bg-cyan text-white" style="border-radius: 5px 5px 0 0">
                     以下為您的訂單資訊
                 </h4>
                 <table class="table">
@@ -39,15 +20,12 @@
                             <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
                             <td class="align-middle text-right">{{ item.final_total }}</td>
                         </tr>
-                    </tbody>
-                    <tfoot>
                         <tr>
                             <td colspan="2" class="text-right">總計</td>
                             <td class="text-right">{{ order.total }}</td>
                         </tr>
-                    </tfoot>
+                    </tbody>
                 </table>
-
                 <table class="table">
                     <tbody>
                         <tr>
@@ -68,10 +46,10 @@
                         </tr>
                         <tr>
                             <th>付款狀態</th>
-                        <td>
-                            <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
-                            <span v-else class="text-success">付款完成</span>
-                        </td>
+                            <td>
+                                <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
+                                <span v-else class="text-success">付款完成</span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -104,13 +82,22 @@
 
 <script>
 import $ from "jquery"
+import Payprocedure from '../components/Payprocedure.vue'
 export default {
+    components: {
+        Payprocedure
+    },
     data(){
         return{
             order: {
                 user:{}
             },
             orderid: '',
+            currentstep: {
+                step1: false,
+                step2: false,
+                step3: true
+            }
         }
     },
     computed: {

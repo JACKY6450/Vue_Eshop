@@ -26,8 +26,8 @@
                     因此你有時候需要停下腳步找尋生活中的一些小確性，讓自己放鬆充電一下才能有更多的能量繼續衝刺!
                 </p>
                 <a href="/store" class="text-white">
-                    <div class="imgframe" style="position: relative">
-                        <img src="../assets/entertaiment_category.jpg" alt="" height="400px" >
+                    <div class="imgframe" style="position: relative; height: 400px">
+                        <img src="../assets/entertaiment_category.jpg" alt="" height="100%" >
                         <div class="overlay">
                             <div class="readmore">進入賣場</div>
                         </div>
@@ -169,23 +169,28 @@ export default {
         white-space: normal;
         overflow: hidden;
     }
-    .imgframe img{
+    .imgframe{
+        overflow: hidden;
+    }
+    /* .imgframe img{
         transition: .6s;
     }
     .imgframe:hover img{
         -webkit-filter:brightness(.6);
-    }
+    } */
     .imgframe:hover .overlay{
-        opacity: 1;
+        top: -100%;
     }
     .overlay{
         height: 100%;
         width: 100%;
-        opacity: 0;
-        position: absolute;
+        position: relative;
         top: 0%;
-        left: 0%;
-        transition: 1s;
+        background-color: rgba(0, 0, 0, .5);
+        /* opacity: 0;
+        top: 0%;
+        left: 0%; */
+        transition: .7s;
     }
     .overlay::before{
         content: '';

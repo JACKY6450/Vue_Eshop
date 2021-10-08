@@ -1,33 +1,14 @@
 <template>
     <div class="information">
         <div class="container mx-auto py-5">
-            <div class="step row">
-                <div class="col-md-4 ">
-                <div class="bg-cyan text-white text-center px-4 py-4 bg-lightcyan text-dark" style="border-radius: 8px">
-                    <div class="h5">STEP1</div>
-                    <div class="h6 mt-3" >確認購物清單</div>
-                </div>
-                </div>
-                <div class="col-md-4 ">
-                <div class="bg-cyan text-white text-center px-4 py-4 " style="border-radius: 8px">
-                    <div class="h5">STEP2</div>
-                    <div class="h6 mt-3" >填寫購買人資訊</div>
-                </div>
-                </div>
-                <div class="col-md-4 ">
-                <div class="bg-cyan text-white text-center px-4 py-4 bg-lightcyan text-dark" style="border-radius: 8px">
-                    <div class="h5">STEP3</div>
-                    <div class="h6 mt-3" >確認訂單&付款</div>
-                </div>
-                </div>
-            </div>
+            <Payprocedure :step = "currentstep"/>
             <div class="row mt-5">
                 <div class="purchaserdata col-md-7" >
-                    <div style="box-shadow: 0px 5px 3px 0px #777777">
+                    <div class="bg-white" style="box-shadow: 0px 5px 3px 0px #777777">
                         <h4 class="py-2 px-2 mb-0 bg-cyan text-white">
                             填寫購買人資訊
                         </h4>
-                        <form class="py-2 px-2 bg-white" @submit.prevent = "createorder()">
+                        <form class="py-2 px-2" @submit.prevent = "createorder()">
                             <div class="form-group">
                                 <label for="useremail">Email</label>
                                 <input type="email" class="form-control" name="email" id="useremail"
@@ -76,33 +57,35 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-5 px-1">
-                    <h4 class="py-2 px-2 mb-0 bg-primary text-white">
-                        購物商品明細
-                    </h4>
-                    <div class="px-3 bg-white ">
-                        <div class="d-flex border-bottom border-dark py-3" v-for = "item in cart.carts" :key = "item.id">
-                            <div class="w-25 mr-3" >
-                                <img :src= "item.product.imageUrl" alt="" style="width: 100%; ">
+                <div class="col-md-5 ">
+                    <div class="bg-white shadow-sm">
+                         <h4 class="py-2 px-2 mb-0 bg-primary text-white">
+                            購物商品明細
+                        </h4>
+                        <div class="px-3">
+                            <div class="d-flex border-bottom border-dark py-3" v-for = "item in cart.carts" :key = "item.id">
+                                <div class="w-25 mr-3" >
+                                    <img :src= "item.product.imageUrl" alt="" style="width: 100%; height: 100%">
+                                </div>
+                                <div class="w-75 h6 mb-0">
+                                    <div class="d-flex justify-content-between font-weight-bold mb-2">
+                                        <span class="text-primary">商品名稱</span>
+                                        <span>{{item.product.title}}</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span class="text-cyan">數量</span>
+                                        <span>{{item.qty}} {{item.product.unit}}</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-success">價格</span>
+                                        <span>${{item.final_total}}</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="w-75 h6 mb-0">
-                                <div class="d-flex justify-content-between font-weight-bold mb-2">
-                                    <span class="text-primary">商品名稱</span>
-                                    <span>{{item.product.title}}</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-cyan">數量</span>
-                                    <span>{{item.qty}} {{item.product.unit}}</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <span class="text-success">價格</span>
-                                    <span>${{item.final_total}}</span>
-                                </div>
+                            <div class = "py-3 text-right">
+                                <span class="h5 mr-2 text-danger">總計: </span>
+                                <span class="h5 text-dark">{{cart.total}} 元</span>
                             </div>
-                        </div>
-                        <div class = "py-3 text-right">
-                            <span class="h5 mr-2 text-danger">總計: </span>
-                            <span class="h5 text-dark">{{cart.total}} 元</span>
                         </div>
                     </div>
                 </div>
@@ -112,7 +95,11 @@
 </template>
 
 <script>
+import Payprocedure from '../components/Payprocedure.vue'
 export default {
+    components: {
+        Payprocedure
+    },
     data(){
         return {
             form: {
@@ -123,6 +110,11 @@ export default {
                     address: '',
                 },
                 message: ''
+            },
+            currentstep: {
+                step1: false,
+                step2: true,
+                step3: false
             }
         }
     },

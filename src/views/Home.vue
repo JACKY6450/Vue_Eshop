@@ -11,7 +11,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav w-100 justify-content-end">
+          <ul class="navbar-nav w-100 justify-content-end h6">
             <li class="cart nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-shopping-cart text-dark" ></i>
@@ -205,7 +205,8 @@ export default {
   -------------------------------------------------- */
   /* Padding below the footer and lighter body text */
   .collapse .navbar-nav .nav-item a.router-link-exact-active{
-    color: #17a2b8;
+    background-color: #17a2b8;
+    color: #ffffff;
   }
   body {
     padding-top: 3rem;

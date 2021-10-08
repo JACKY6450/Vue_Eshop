@@ -3,7 +3,7 @@
         <Banner />
         <div class="row my-4 container">
             <div class="category col-md-3 mb-4">
-                <ul class="list-group h5" :class = "{ 'fixlist-group' : listfixtop}">
+                <ul class="list-group h5 shadow-sm" :class = "{ 'fixlist-group' : listfixtop}">
                     <!-- <li class="list-group-item active">ALL</li> -->
                     <li class="list-group-item list-group-item-action" 
                      :class = "{active : pointer === index}"
@@ -16,7 +16,7 @@
             </div>
             <div class="col-md-9 row">
                 <div class="col-md-4 mb-4 " v-for = "item in filterprod" :key = "item.id">
-                    <div class="card border-2 shadow-sm ">
+                    <div class="card border-2 shadow">
                         <a :href = "'/productsingle/'+item.id" class="prodimg">
                             <div style="height: 180px; background-size: cover; background-position: center;"
                                 :style = "{backgroundImage: `url(${item.imageUrl})`}"

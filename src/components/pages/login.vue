@@ -14,7 +14,7 @@
                     <input type="checkbox" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-cyan btn-block" type="submit">Login</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
         </form>
     </div>

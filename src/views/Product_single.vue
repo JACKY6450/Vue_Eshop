@@ -14,7 +14,7 @@
                 </div>
                 <div class="prodcont col-md-5">
                     <h1 class="text-cyan ">{{product.title}}</h1>
-                    <div class="proddescribe" style="height: 80px">
+                    <div class="proddescribe " style="height: 90px">
                         <p class="describecont h6">
                            {{product.content}}
                         </p>
@@ -27,7 +27,8 @@
                     <div class="number my-1 mb-3">
                         <label class="h5">請選擇數量:</label>
                         <div class="countnumber d-flex align-items: center" style="height: 40px">
-                            <button class="btn btn-outline-cyan" style="border-radius: 5px 0px 0px 5px;" @click= "addcount(-1)">
+                            <button class="btn btn-outline-cyan " :class = "{'disabled' : count === 1}" 
+                             style="border-radius: 5px 0px 0px 5px;" @click= "addcount(-1)">
                                 <i class="fa fa-minus" aria-hidden="true"></i>
                             </button>
                             <input type="number" class="border border-cyan text-center h5"  style="width: 160px; height:100%"
@@ -191,7 +192,7 @@ export default {
     }
     .describecont{
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         white-space: normal;
         overflow: hidden;
