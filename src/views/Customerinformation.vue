@@ -58,10 +58,10 @@
                     </div>
                 </div>
                 <div class="col-md-5 ">
-                    <div class="bg-white shadow-sm">
-                         <h4 class="py-2 px-2 mb-0 bg-primary text-white">
+                    <div class="cartlist bg-white shadow-sm border border-cyan" >
+                         <h3 class="pt-3 px-3 mb-0 font-weight-bold">
                             購物商品明細
-                        </h4>
+                        </h3>
                         <div class="px-3">
                             <div class="d-flex border-bottom border-dark py-3" v-for = "item in cart.carts" :key = "item.id">
                                 <div class="w-25 mr-3" >
@@ -111,6 +111,7 @@ export default {
                 },
                 message: ''
             },
+            listfixtop: false,
             currentstep: {
                 step1: false,
                 step2: true,
@@ -147,8 +148,9 @@ export default {
                 this.$store.dispatch('updateloading', false);
                 }
             });   
-        }
-    }
+        },
+    },
+    
 }
 </script>
 

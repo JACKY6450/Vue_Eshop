@@ -14,16 +14,17 @@
                 <th width = "80"></th>
                 <th width = "100">商品縮圖</th>
                 <th>商品名稱</th>
-                <th width = "150" class="text-center">數量</th>
-                <th width = "150" class="text-center">價格</th>
+                <th width = "100" class="text-center">數量</th>
+                <th with = "80" class="text-center">單位</th>
+                <th width = "150" >價格</th>
             </tr>
           </thead>
           <tbody >
             <tr class="border-bottom" v-for = " item in cart.carts" :key = "item.id">
               <td class="text-center align-middle">
-                  <button class="btn btn-outline-danger btn-sm " @click = "removecartitem(item.id)">
-                      <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
+                <button class="btn btn-outline-danger btn-sm " @click = "removecartitem(item.id)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
               </td>
               <td> 
                   <img :src= "item.product.imageUrl" alt="" width="100" height="100">
@@ -34,12 +35,16 @@
               <td class="text-center align-middle h6 text-center">
                   {{item.qty}} 
               </td>
+              <td class="text-center align-middle h6 text-center">
+                  {{item.product.unit}} 
+              </td>
               <td class="text-right align-middle h6"> 
                   ${{item.final_total}} 
               </td>
               
             </tr>
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
