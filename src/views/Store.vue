@@ -2,8 +2,8 @@
     <div class="store">
         <Banner />
         <div class="row my-4 container">
-            <div class="category col-md-3 mb-4">
-                <ul class="list-group h5 shadow-sm" :class = "{ 'fixlist-group' : listfixtop}">
+            <div class="category col-md-3 mb-4 " ref="categoryfilt">
+                <ul class="list-group h5 shadow-sm" id="listgroup"  >
                     <!-- <li class="list-group-item active">ALL</li> -->
                     <li class="list-group-item list-group-item-action" 
                      :class = "{active : pointer === index}"
@@ -14,42 +14,45 @@
                      </li>
                 </ul>
             </div>
-            <div class="col-md-9 row">
-                <div class="col-md-4 mb-4 " v-for = "item in filterprod" :key = "item.id">
-                    <div class="card border-2 shadow">
-                        <a :href = "'/productsingle/'+item.id" class="prodimg">
-                            <div style="height: 180px; background-size: cover; background-position: center;"
-                                :style = "{backgroundImage: `url(${item.imageUrl})`}"
-                                class="prodimg1">
-                            </div>
-                            <div class="overlay text-center">
-                                <div class="readmore text-white">
-                                    看更多
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4 mb-4 " v-for = "item in filterprod" :key = "item.id">
+                        <div class="card border-2 shadow">
+                            <a :href = "'/productsingle/'+item.id" class="prodimg">
+                                <div style="height: 180px; background-size: cover; background-position: center;"
+                                    :style = "{backgroundImage: `url(${item.imageUrl})`}"
+                                    class="prodimg1">
+                                </div>
+                                <div class="overlay text-center">
+                                    <div class="readmore text-white">
+                                        看更多
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                
+                                <span class="badge badge-teal float-right ml-2">{{item.category}}</span>
+                                <h5 class="card-title">
+                                    <a :href = "'/productsingle/'+item.id" class="text-primary" >{{item.title}}</a>
+                                </h5>
+                                <p class="card-text">{{item.content}}</p>
+                                <div class="d-flex justify-content-between align-items-baseline">
+                                    <!-- <div class="h5">2,800 元</div> -->
+                                    <del class="h6 text-danger">原價: {{item.origin_price}}</del>
+                                    <div class="h5">特價: {{item.price}}</div>
                                 </div>
                             </div>
-                        </a>
-                        <div class="card-body">
-                            
-                            <span class="badge badge-teal float-right ml-2">{{item.category}}</span>
-                            <h5 class="card-title">
-                                <a :href = "'/productsingle/'+item.id" class="text-primary" >{{item.title}}</a>
-                            </h5>
-                            <p class="card-text">{{item.content}}</p>
-                            <div class="d-flex justify-content-between align-items-baseline">
-                                <!-- <div class="h5">2,800 元</div> -->
-                                <del class="h6 text-danger">原價: {{item.origin_price}}</del>
-                                <div class="h5">特價: {{item.price}}</div>
+                            <div class="card-footer d-flex">
+                                <button type="button" class="btn btn-cyan w-100 "
+                                @click= "addtocart(item.id)">
+                                    <!-- <i class="fas fa-spinner fa-spin"></i> -->
+                                    加到購物車
+                                </button>
                             </div>
-                        </div>
-                        <div class="card-footer d-flex">
-                            <button type="button" class="btn btn-cyan w-100 "
-                            @click= "addtocart(item.id)">
-                                <!-- <i class="fas fa-spinner fa-spin"></i> -->
-                                加到購物車
-                            </button>
                         </div>
                     </div>
                 </div>
+               
             </div>
         </div>
         <!-- <ul>
@@ -77,7 +80,7 @@ export default {
             pointer: 0,
             scroll: 0,
             showidth: null,
-            listfixtop: false
+            listfixtop: false,
         }
     },
     computed:{
@@ -150,19 +153,6 @@ export default {
                 this.$store.dispatch('addtocart', {id, qty});
             }
               
-            // const api = 'https://vue-course-api.hexschool.io/api/jackyyenhan/cart'
-            // const cart = {
-            //     product_id: id,
-            //     qty
-            // }
-            // this.$http.post(api, {data: cart}).then(response => {
-            //     console.log(response.data);
-            //     this.getcart();
-            //     // this.products = response.data.products;
-            // });
-            // let api = 'https://vue-course-api.hexschool.io/api/jackyyenhan/cart'
-            
-            // console.log(this.same);
         },
         categoryhandle(products){
             let arr = [];
@@ -180,17 +170,23 @@ export default {
             this.pointer = index;
             this.currentcategory = item;
         },
-        scrollDs(){
-            this.scroll = document.documentElement.scrollTop;
-            this.showidth = document.body.clientWidth;
-            if(this.scroll > 750 && this.showidth >= 768){
-                this.listfixtop = true;
-                // console.log(this.showidth);
-            }
-            else{
-                this.listfixtop = false
-            }
-        }
+        // scrollDs(){
+        //     this.scroll = document.documentElement.scrollTop;
+        //     this.showidth = document.body.clientWidth;
+        //     if(this.scroll > 750 && this.showidth >= 768){
+        //         // let tempwidth = this.$refs.listgroup.offsetWidth;
+        //         let listgroup = document.getElementById("listgroup");
+        //         listgroup.style.width = this.$refs.categoryfilt.offsetWidth -30 +'px';
+        //         // console.log(listgroup.style.width);
+        //         this.listfixtop = true;
+        //         // console.log(tempwidth);
+        //     }
+        //     else{
+        //         // let listgroup = document.getElementById("listgroup");
+        //         // listgroup.style.width = "100%";
+        //         this.listfixtop = false
+        //     }
+        // }
     },
     created(){
         this.getproducts();
@@ -205,6 +201,7 @@ export default {
        margin-top: 4rem;
    }
     .container{
+        max-width: 1280px;
         margin: auto;
     }
     .active{
@@ -222,7 +219,7 @@ export default {
     .fixlist-group{
         position: fixed;
         top: 80px;
-        width: 247.5px;
+        /* width: 282.5px; */
     }
     .card{
         position: relative;

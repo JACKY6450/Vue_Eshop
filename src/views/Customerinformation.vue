@@ -78,13 +78,29 @@
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <span class="text-success">價格</span>
-                                        <span>${{item.final_total}}</span>
+                                        <span v-if = "item.total === item.final_total">${{item.total}}</span>
+                                        <span v-else class="text-cyan">${{item.final_total}}</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class = "py-3 text-right">
+                            <div class = "my-3 text-right">
                                 <span class="h5 mr-2 text-danger">總計: </span>
                                 <span class="h5 text-dark">{{cart.total}} 元</span>
+                            </div>
+                            <div class = "mb-3 text-right" v-if = "cart.final_total != cart.total">
+                                <span class="h5 mr-2 text-success">折扣價: </span>
+                                <span class="h5 text-dark">{{cart.final_total}} 元</span>
+                            </div>
+                            <div class="mb-1 text-cyan">
+                                <i class="far fa-smile"></i>
+                                慶祝開幕輸入優惠碼 takearest 即刻享有9折優惠
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="" v-model = "coupon_code"
+                                 aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-cyan" type="button" @click="addcouponcode()">套用優惠碼</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,7 +132,8 @@ export default {
                 step1: false,
                 step2: true,
                 step3: false
-            }
+            },
+            coupon_code: ''
         }
     },
     computed: {
@@ -125,6 +142,19 @@ export default {
         }, 
     },
     methods: {
+        addcouponcode(){
+            const url = 'https://vue-course-api.hexschool.io/api/jackyyenhan/coupon';
+            const coupon = {
+                code: this.coupon_code
+            }
+            this.$store.dispatch('updateloading', true);
+            this.$http.post(url, { data: coupon}).then((response) => {
+                console.log(response);
+                this.$store.dispatch('getcart');
+                this.coupon_code = '';
+                // this.$store.dispatch('updateloading', false);
+            })
+        },
         createorder(){
             if(!this.cart.carts.length) {
                 alert('購物車是空的!!');

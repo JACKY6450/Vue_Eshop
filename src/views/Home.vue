@@ -28,7 +28,7 @@
                     {{item.product.title}}
                   </span>
                   <span class="text-right " style="width:90px">
-                    {{item.final_total}}
+                    {{item.total}}
                   </span>
                   <span class="text-center mx-2 " style="width:50px">
                     {{item.qty}} {{item.product.unit}}

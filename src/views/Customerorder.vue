@@ -39,7 +39,7 @@
                   {{item.product.unit}} 
               </td>
               <td class="text-right align-middle h6"> 
-                  ${{item.final_total}} 
+                  ${{item.total}} 
               </td>
               
             </tr>

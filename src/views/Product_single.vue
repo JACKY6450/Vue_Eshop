@@ -52,7 +52,7 @@
             <div class="row px-2">
                 <div class="sellitem col-md-3 mb-3" v-for = "item in maybelike" :key = "item.id">
                     <a :href = "'/productsingle/'+item.id" class="text-dark text-decoration-none">
-                        <div class="card border-0">
+                        <div class="maybelike card border-0">
                             <img class="card-img-top" :src = "item.imageUrl" height="200px">
                             <div class="card-body" >
                                 <h4 class="card-title">{{ item.title }}</h4>
@@ -119,7 +119,7 @@ export default {
                     if(this.product.category === element.category) return element;
                 }
             })
-            for(let i=0; i<3; i++){
+            for(let i=0; i<4; i++){
                 if(arr.length === 0) break;
                 let randomid = Math.floor(Math.random()*arr.length);
                 this.maybelike.push(arr[randomid]);
@@ -200,8 +200,12 @@ export default {
     #countchoice{
         border-radius: 8px;
     }
-    .sellitem a:hover .card{
-        opacity: .8;
+    .maybelike {
+        transition: .3s;
+    }
+    .sellitem a:hover .maybelike{
+        opacity: .9;
+        box-shadow: 3px 3px 3px 0 #999999;
     }
     .card-title{
         text-overflow: ellipsis; 

@@ -7,6 +7,7 @@ import login from '../components/pages/login.vue'
 import dashboard from '../views/dashboard.vue'
 import products from '../components/products.vue'
 import Orderlist from '../views/Orderlist.vue'
+import Coupon from '../views/Coupon.vue'
 import Productsingle from '../views/Product_single.vue'
 import Store from '../views/Store.vue'
 import About from '../views/About.vue'
@@ -80,6 +81,12 @@ const routes = [
         path: 'orderlist',
         name: 'Orderlist',
         component: Orderlist,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'coupon',
+        name: 'Coupon',
+        component: Coupon,
         meta: { requiresAuth: true }
       }
     ],

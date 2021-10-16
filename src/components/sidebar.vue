@@ -14,13 +14,18 @@
                             產品列表
                         </router-link>
                     </li>
+                     <li class="nav-item" >
+                        <router-link class="nav-link" to = "/admin/coupon">
+                            <i class="fas fa-ticket-alt"></i>
+                            優惠券
+                        </router-link>
+                    </li>
                     <li class="nav-item" >
                         <router-link class="nav-link" to = "/admin/orderlist">
                             <i class="far fa-list-alt"></i>
                             訂單列表
                         </router-link>
                     </li>
-                    
                 </ul>
             </div>
         </nav>
