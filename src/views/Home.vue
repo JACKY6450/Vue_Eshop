@@ -10,8 +10,8 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav w-100 justify-content-end h6">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+          <ul class="navbar-nav h6">
             <li class="cart nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-shopping-cart text-dark" ></i>
@@ -132,7 +132,7 @@
           <!-- Grid column -->
         </div>
         <!-- Grid row -->
-        <div class="socialmedia d-flex justify-content-end my-2">
+        <div class="socialmedia text-right my-2">
           <a href="javascript:;" class="px-1 py-1 mr-1">
             <i class="fab fa-facebook fa-2x"></i>
           </a>
