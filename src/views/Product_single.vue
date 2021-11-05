@@ -170,7 +170,6 @@ export default {
 
 <style scoped>
     .prodsingle{
-        margin-top: 4rem;
         background-color: white;
     }
     input::-webkit-outer-spin-button,

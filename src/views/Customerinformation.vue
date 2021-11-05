@@ -185,7 +185,5 @@ export default {
 </script>
 
 <style scoped>
-    .information{
-        margin-top: 4rem;
-    }
+    
 </style>

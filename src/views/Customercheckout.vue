@@ -143,9 +143,7 @@ export default {
 </script>
 
 <style>
-    .checkout{
-        margin-top: 4rem;
-    }
+    
     .modal-dialog{
         max-width: 600px;
     }

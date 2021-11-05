@@ -2,72 +2,70 @@
   <div class="home"> 
      <loading :active.sync="isLoading" ></loading>
     <Alert></Alert>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-        <a class="navbar-brand px-2 bg-cyan text-light" style="border-radius: 25px;" href="/">
-          Take a rest mall 
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
-          <ul class="navbar-nav h6">
-            <li class="cart nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+      <a class="navbar-brand px-2 bg-cyan text-light" style="border-radius: 25px;" href="/">
+        Take a rest mall 
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+        <ul class="navbar-nav h6">
+          <li class="cart nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart text-dark" ></i>
+              購物車
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+              <div class="text-center">
                 <i class="fas fa-shopping-cart text-dark" ></i>
-                購物車
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                <div class="text-center">
-                  <i class="fas fa-shopping-cart text-dark" ></i>
-                  購物車明細
-                </div>
-                <div class="dropdown-divider"></div>
-                <div class="d-flex align-items-center py-1 px-3" v-for = "item in cart.carts" :key = "item.id">
-                  <span class="limit1line flex-grow-1 ">
-                    {{item.product.title}}
-                  </span>
-                  <span class="text-right " style="width:90px">
-                    {{item.total}}
-                  </span>
-                  <span class="text-center mx-2 " style="width:50px">
-                    {{item.qty}} {{item.product.unit}}
-                  </span>
-                  <button class="btn btn-outline-danger btn-sm" @click = "removecartitem(item.id)">
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </button>
-                </div>
-                <div class="dropdown-divider"></div>
-                <div class="text-center">
-                  <button class="btn btn-cyan" @click = "gotoorder()">
-                    前往結帳
-                  </button>
-                </div>
+                購物車明細
               </div>
-              <div v-if= "cart.carts" class="cart-count rounded-circle bg-danger text-light">{{cart.carts.length}}</div>
-            </li> 
-            <li class="nav-item">
-              <router-link class="nav-link " to = "/about">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link " to = "/store">前往賣場</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link " to = "/login">管理員登入</router-link>
-            </li>
-            <!-- <li class="nav-item active">
-              <a class="nav-link disabled text-dark" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
-          </ul>
-          <!-- <div class="cart mx-1 mr-2">
-            <button class="btn btn-teal rounded-circle p-2 ">
-              
-            </button>
+              <div class="dropdown-divider"></div>
+              <div class="d-flex align-items-center py-1 px-3" v-for = "item in cart.carts" :key = "item.id">
+                <span class="limit1line flex-grow-1 ">
+                  {{item.product.title}}
+                </span>
+                <span class="text-right " style="width:90px">
+                  {{item.total}}
+                </span>
+                <span class="text-center mx-2 " style="width:50px">
+                  {{item.qty}} {{item.product.unit}}
+                </span>
+                <button class="btn btn-outline-danger btn-sm" @click = "removecartitem(item.id)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+              </div>
+              <div class="dropdown-divider"></div>
+              <div class="text-center">
+                <button class="btn btn-cyan" @click = "gotoorder()">
+                  前往結帳
+                </button>
+              </div>
+            </div>
+            <div v-if= "cart.carts" class="cart-count rounded-circle bg-danger text-light">{{cart.carts.length}}</div>
+          </li> 
+          <li class="nav-item">
+            <router-link class="nav-link " to = "/about">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link " to = "/store">前往賣場</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link " to = "/login">管理員登入</router-link>
+          </li>
+          <!-- <li class="nav-item active">
+            <a class="nav-link disabled text-dark" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li> -->
+        </ul>
+        <!-- <div class="cart mx-1 mr-2">
+          <button class="btn btn-teal rounded-circle p-2 ">
             
-          </div> -->
-        </div>
-      </nav>
-    </header>
+          </button>
+          
+        </div> -->
+      </div>
+    </nav>
     <!-- Show Child Component -->
     <router-view/> 
     <!-- Footer -->
@@ -208,10 +206,8 @@ export default {
     background-color: #17a2b8;
     color: #ffffff;
   }
-  body {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    color: #5a5a5a;
+  .home {
+    margin-top: 4rem;
   }
   .cart{
     position: relative;

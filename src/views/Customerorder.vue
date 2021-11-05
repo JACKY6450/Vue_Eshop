@@ -110,9 +110,6 @@ export default {
 </script>
 
 <style scoped>
-  .customerorder{
-    margin-top: 4rem;
-  }
   .container{
     /* max-width: 1360px; */
     margin: auto;
