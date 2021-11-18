@@ -2,8 +2,8 @@
     <div class="store">
         <Banner />
         <div class="row my-4 container">
-            <div class="category col-md-3 mb-4 " ref="categoryfilt">
-                <ul class="list-group h5 shadow-sm" id="listgroup"  >
+            <div class="category col-md-3 mb-4 " id ="categoryfilt" refs = "categoryfilt">
+                <ul class="list-group h5 shadow-sm" :class = "{'fixlist-group': listfixtop}" id="listgroup" >
                     <!-- <li class="list-group-item active">ALL</li> -->
                     <li class="list-group-item list-group-item-action" 
                      :class = "{active : pointer === index}"
@@ -170,28 +170,41 @@ export default {
             this.pointer = index;
             this.currentcategory = item;
         },
-        // scrollDs(){
-        //     this.scroll = document.documentElement.scrollTop;
-        //     this.showidth = document.body.clientWidth;
-        //     if(this.scroll > 750 && this.showidth >= 768){
-        //         // let tempwidth = this.$refs.listgroup.offsetWidth;
-        //         let listgroup = document.getElementById("listgroup");
-        //         listgroup.style.width = this.$refs.categoryfilt.offsetWidth -30 +'px';
-        //         // console.log(listgroup.style.width);
-        //         this.listfixtop = true;
-        //         // console.log(tempwidth);
-        //     }
-        //     else{
-        //         // let listgroup = document.getElementById("listgroup");
-        //         // listgroup.style.width = "100%";
-        //         this.listfixtop = false
-        //     }
-        // }
+        scrollDs(){
+            this.scroll = document.documentElement.scrollTop;
+            this.showidth = document.body.clientWidth;
+            if(this.scroll > 750 && this.showidth >= 768){
+                if(!this.listfixtop){
+                    // let tempwidth = this.$refs.listgroup.offsetWidth;
+                    let listgroup = document.getElementById("listgroup");
+                    let parentwidth = document.getElementById("categoryfilt").offsetWidth;
+                    listgroup.style.width = parentwidth -30 + 'px';
+                    this.listfixtop = true;
+                    // console.log(tempwidth);
+                }
+            }
+            else{
+                // let listgroup = document.getElementById("listgroup");
+                // listgroup.style.width = "100%";
+                if(this.listfixtop){
+                    this.listfixtop = false    
+                }
+            }
+        },
+        detect(){
+            let listgroup = document.getElementById("listgroup");
+            let parentwidth = document.getElementById("categoryfilt").offsetWidth;
+            listgroup.style.width = parentwidth -30 + 'px';
+        }
     },
     created(){
         this.getproducts();
-        window.addEventListener('scroll',this.scrollDs);
-        // this.getcart();
+        
+    },
+    mounted(){
+        window.addEventListener('scroll', this.scrollDs);
+        window.addEventListener('resize', this.detect);
+        
     }
 }
 </script>

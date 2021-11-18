@@ -76,7 +76,7 @@ export default {
         bottom: 8rem;
         z-index: 10;
         background-color: rgba(0, 0, 0, .4);
-        width: 560px;
+        width: 40%;
         text-align: start;
         left: 50%;
     }
