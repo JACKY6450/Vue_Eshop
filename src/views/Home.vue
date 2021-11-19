@@ -43,7 +43,7 @@
                 </button>
               </div>
             </div>
-            <div v-if= "cart.carts" class="cart-count rounded-circle bg-danger text-light">{{cart.carts.length}}</div>
+            <div v-if= "cart.carts.length" class="cart-count rounded-circle bg-danger text-light">{{cart.carts.length}}</div>
           </li> 
           <li class="nav-item">
             <router-link class="nav-link " to = "/about">Home</router-link>

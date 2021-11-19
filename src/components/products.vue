@@ -52,7 +52,7 @@
         <!-- Page -->
         <Pagination 
          :pagination = "pagination" 
-         @change_page = "getproducts($event)"
+         @change_page = "getproducts"
          />
         <!-- Modal -->
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
