@@ -55,16 +55,11 @@
                
             </div>
         </div>
-        <!-- <ul>
-            <li v-for = "item in filterprod" :key = "item.id">
-                {{item.title}}
-            </li>
-        </ul> -->
     </div>
 </template>
 
 <script>
-import Banner from '../components/banner.vue'
+import Banner from '@/components/banner.vue'
 export default {
     components:{
         Banner
@@ -120,7 +115,9 @@ export default {
                 this.products = response.data.products;
                 this.pagination = response.data.pagination;
                 this.categoryhandle(this.products);
-                this.$store.dispatch('updateloading', false);
+                setTimeout(() => {
+                    this.$store.dispatch('updateloading', false);
+                }, 500)
             });
         },
         getcart(){
@@ -199,12 +196,14 @@ export default {
     },
     created(){
         this.getproducts();
-        
     },
     mounted(){
         window.addEventListener('scroll', this.scrollDs);
         window.addEventListener('resize', this.detect);
-        
+    },
+    destroyed(){
+        window.removeEventListener('scroll', this.scrollDs);
+        window.removeEventListener('resize', this.detect);
     }
 }
 </script>

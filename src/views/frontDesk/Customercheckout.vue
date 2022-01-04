@@ -83,8 +83,8 @@
 </template>
 
 <script>
-import $ from "jquery"
-import Payprocedure from '../components/Payprocedure.vue'
+import $ from 'jquery'
+import Payprocedure from '@/components/Payprocedure.vue'
 export default {
     components: {
         Payprocedure

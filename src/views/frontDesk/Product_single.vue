@@ -109,7 +109,9 @@ export default {
                 console.log(response.data);
                 this.products = response.data.products;
                 this.maybelikehandler();
-                this.$store.dispatch('updateloading', false);
+                setTimeout(() => {
+                    this.$store.dispatch('updateloading', false);
+                }, 500)
             });
         },
         maybelikehandler(){

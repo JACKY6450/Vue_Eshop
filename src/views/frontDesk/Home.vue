@@ -164,7 +164,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import Alert from '../components/AlertMessage.vue'
+import Alert from '@/components/AlertMessage.vue'
 export default {
   name: 'Home',
   components: {

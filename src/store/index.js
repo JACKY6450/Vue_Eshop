@@ -29,9 +29,11 @@ export default new Vuex.Store({
           if(response.data.data.carts){
             this.cart = response.data.data;
             commit('CART', response.data.data);
-            commit('Loading', false);
           }
-          console.log(response.data.data);
+          setTimeout(() => {
+            commit('Loading', false);
+          }, 500)
+          console.log(response.data);
       });
     },
     removecartitem({dispatch, commit}, id){

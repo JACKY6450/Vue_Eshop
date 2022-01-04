@@ -8,7 +8,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img alt="Vue logo" src="../assets/Sports_category.jpg" width="100%"> 
+                <img alt="Vue logo" src="@/assets/Sports_category.jpg" width="100%"> 
                 <div class="container">
                     <div class="carousel-caption text-center">
                         <h2>You need to take a rest 
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img alt="Vue logo" src="../assets/dessert_category.jpg" width="100%">
+                <img alt="Vue logo" src="@/assets/dessert_category.jpg" width="100%">
                 <div class="container">
                     <div class="carousel-caption text-center">
                         <h2>You need to take a rest 
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img alt="Vue logo" src="../assets/entertaiment_category.jpg" width="100%">
+                <img alt="Vue logo" src="@/assets/entertaiment_category.jpg" width="100%">
                <div class="container">
                     <div class="carousel-caption text-center">
                         <h2>You need to take a rest 

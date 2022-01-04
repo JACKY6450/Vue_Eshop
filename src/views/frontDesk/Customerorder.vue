@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import Payprocedure from '../components/Payprocedure.vue'
+import Payprocedure from '@/components/Payprocedure.vue'
 export default {
   components: {
     Payprocedure

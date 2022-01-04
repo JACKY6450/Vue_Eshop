@@ -27,7 +27,7 @@
                 </p>
                 <a href="/store" class="text-white">
                     <div class="imgframe" style="position: relative; height: 400px">
-                        <img src="../assets/entertaiment_category.jpg" alt="" height="100%" >
+                        <img src="@/assets/entertaiment_category.jpg" alt="" height="100%" >
                         <div class="overlay">
                             <div class="readmore">進入賣場</div>
                         </div>
@@ -38,7 +38,7 @@
 
             <div class="row featurette " >
                 <div class="categorypic col-md-5 px-0" data-aos = "fade-right" >
-                    <img src="../assets/Sports_category.jpg" alt="" height="360px" >
+                    <img src="@/assets/Sports_category.jpg" alt="" height="360px" >
                 </div>
                 <div class="col-md-7 py-3 order-md-1 d-flex flex-column justify-content-center" >
                     <div class="w-75 text-center" style="margin: auto; " data-aos="fade-left">
@@ -57,7 +57,7 @@
             <hr class="featurette-divider bg-cyan">
             <div class="row featurette ">
                 <div class="categorypic col-md-5 px-0 order-md-2" data-aos = "fade-left">
-                    <img src="../assets/entertaiment_category.jpg" alt="" height="380px" >
+                    <img src="@/assets/entertaiment_category.jpg" alt="" height="380px" >
                 </div>
                 <div class="col-md-7 py-3 order-md-1 d-flex flex-column justify-content-center" >
                     <div class="w-75 text-center" style="margin: auto; " data-aos="fade-right">
@@ -78,7 +78,7 @@
             <hr class="featurette-divider bg-cyan">
             <div class="row featurette ">
                 <div class="categorypic col-md-5 px-0" data-aos = "fade-down">
-                    <img src="../assets/dessert_category.jpg" alt="" height="360px" >
+                    <img src="@/assets/dessert_category.jpg" alt="" height="360px" >
                 </div>
                 <div class="col-md-7 py-3 order-md-1 d-flex flex-column justify-content-center">
                     <div class="w-75 text-center" style="margin: auto" data-aos="fade-up">
@@ -102,7 +102,7 @@
 </template>
 
 <script>
-    import Banner from '../components/banner.vue' 
+import Banner from '@/components/banner.vue' 
 export default {
     components: {
         Banner
@@ -122,8 +122,9 @@ export default {
                 console.log(response.data);
                 this.products = response.data.products;
                 this.addtopopsell();
-                // this.$store.state.isLoading = false;
-                this.$store.dispatch('updateloading', false);
+                setTimeout(() => {
+                    this.$store.dispatch('updateloading', false);
+                }, 500)
             });
         },
         addtopopsell(){
