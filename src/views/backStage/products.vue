@@ -38,13 +38,14 @@
                         <span v-else>未啟用</span>
                     </td>
                     <td>
-                        <button class="btn btn-outline-primary btn-sm mr-1" @click = "openModal(false, item)">
-                            編輯
-                        </button>
-                        <button class="btn btn-outline-danger btn-sm" @click = "opendelModal(item)">
-                            刪除
-                        </button>
-
+                        <div class="btn-group">
+                            <button class="btn btn-outline-primary btn-sm" @click = "openModal(false, item)">
+                                編輯
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" @click = "opendelModal(item)">
+                                刪除
+                            </button>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -54,7 +55,7 @@
          :pagination = "pagination" 
          @change_page = "getproducts"
          />
-        <!-- Modal -->
+        <!-- Modal Edit Product-->
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -161,6 +162,7 @@
                 </div>
             </div>
         </div>
+        <!-- Modal Del Product -->
         <div class="modal fade" id="delProductModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

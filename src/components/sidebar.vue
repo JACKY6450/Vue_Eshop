@@ -1,5 +1,5 @@
 <template>
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse position-fixed">
         <div class="sidebar-sticky pt-3">
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
                 <span>拍賣場後台</span>
@@ -14,7 +14,7 @@
                         產品列表
                     </router-link>
                 </li>
-                    <li class="nav-item" >
+                <li class="nav-item" >
                     <router-link class="nav-link" to = "/admin/coupon">
                         <i class="fas fa-ticket-alt"></i>
                         優惠券
