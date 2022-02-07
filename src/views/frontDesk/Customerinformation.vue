@@ -2,7 +2,7 @@
     <div class="information">
         <div class="container mx-auto py-5">
             <Payprocedure :step = "currentstep"/>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 <div class="purchaserdata col-md-7" >
                     <div class="bg-white" style="box-shadow: 0px 5px 3px 0px #777777">
                         <h4 class="py-2 px-2 mb-0 bg-cyan text-white">

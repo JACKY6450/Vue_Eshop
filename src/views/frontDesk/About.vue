@@ -5,7 +5,7 @@
             <h1 class="text-center mb-3">熱銷商品</h1>
             <div class="row justify-content-between">
                 <div class="sellitem col-md-3" v-for = "item in popsell" :key = "item.id">
-                    <a :href = "'/productsingle/'+item.id" class="text-dark">
+                    <router-link :to="'/productsingle/'+item.id" class="text-dark">
                         <div class="card">
                             <img class="card-img-top" :src = "item.imageUrl" height="200px">
                             <div class="card-body" >
@@ -16,7 +16,7 @@
                                 <div class="h5 text-right " style="color: indigo">特價: ${{ item.price }}</div>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
             </div>
             <div class="aboutus text-center mt-5" data-aos="fade-down">

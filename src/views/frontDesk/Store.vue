@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-4 mb-4 " v-for = "item in filterprod" :key = "item.id">
                         <div class="card border-2 shadow">
-                            <a :href = "'/productsingle/'+item.id" class="prodimg">
+                            <router-link :to="'/productsingle/'+item.id" class="prodimg">
                                 <div style="height: 180px; background-size: cover; background-position: center;"
                                     :style = "{backgroundImage: `url(${item.imageUrl})`}"
                                     class="prodimg1">
@@ -28,12 +28,11 @@
                                         看更多
                                     </div>
                                 </div>
-                            </a>
+                            </router-link>
                             <div class="card-body">
-                                
                                 <span class="badge badge-teal float-right ml-2">{{item.category}}</span>
                                 <h5 class="card-title">
-                                    <a :href = "'/productsingle/'+item.id" class="text-primary" >{{item.title}}</a>
+                                    <router-link :to="'/productsingle/'+item.id" class="text-primary" >{{item.title}}</router-link>
                                 </h5>
                                 <p class="card-text">{{item.content}}</p>
                                 <div class="d-flex justify-content-between align-items-baseline">
