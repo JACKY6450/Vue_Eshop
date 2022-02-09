@@ -66,7 +66,7 @@
 			<hr class="featurette-divider bg-cyan">
 			<h4 class="px-2">您可能也會喜歡</h4>
 			<div class="row px-2">
-				<div class="sellitem col-md-3 mb-3" v-for = "item in maybelike" :key = "item.id">
+				<div class="itemMaybe col-sm-6 col-lg-3 mb-3" v-for = "item in maybelike" :key = "item.id">
 					<a :href = "'/productsingle/'+item.id" class="text-dark text-decoration-none">
 						<div class="maybelike card border-0">
 							<img class="card-img-top" :src = "item.imageUrl" height="200px">
@@ -212,7 +212,7 @@ export default {
 	.maybelike {
 		transition: .3s;
 	}
-	.sellitem a:hover .maybelike{
+	.itemMaybe a:hover .maybelike{
 		opacity: .9;
 		box-shadow: 3px 3px 3px 0 #999999;
 	}
