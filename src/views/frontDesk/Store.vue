@@ -1,48 +1,49 @@
 <template>
 	<div class="store">
 		<Banner />
-		<div class="row my-4 container">
-			<div class="category col-md-3 mb-4 " id ="categoryfilt" refs = "categoryfilt">
-				<ul class="list-group h5 shadow-sm" :class = "{'fixlist-group': listfixtop}" id="listgroup" >
-					<!-- <li class="list-group-item active">ALL</li> -->
-					<li class="list-group-item list-group-item-action" 
-						:class = "{active : pointer === index}"
-						v-for = "(item, index) in category" :key = "item"
-						@click = "categoryswi(item,index)"
-						>
-							{{item}}
-					</li>
-				</ul>
-			</div>
-			<div class="col-md-9">
-				<div class="row">
-					<div class="col-sm-6 col-lg-4 mb-4 " v-for = "item in filterprod" :key = "item.id">
-						<div class="card border-2 shadow">
-							<div class="card-head position-relative">
-								<router-link :to="'/productsingle/'+item.id" class="prodimg">
-									<div style="height: 180px; background-size: cover; background-position: center;"
-										:style = "{backgroundImage: `url(${item.imageUrl})`}"
-										class="prodimg1">
-									</div>
-									<div class="overlay text-center w-100 h-100 position-absolute">
-										<div class="readmore text-white">
-												看更多
+		<div class="container my-4">
+			<div class="row">
+				<div class="category col-md-3 mb-4 " id ="categoryfilt" refs = "categoryfilt">
+					<ul class="list-group h5 shadow-sm" :class = "{'fixlist-group': listfixtop}" id="listgroup" >
+						<!-- <li class="list-group-item active">ALL</li> -->
+						<li class="list-group-item list-group-item-action" 
+							:class = "{active : pointer === index}"
+							v-for = "(item, index) in category" :key = "item"
+							@click = "categoryswi(item,index)"
+							>
+								{{item}}
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-9">
+					<div class="row">
+						<div class="col-sm-6 col-lg-4 mb-4 " v-for = "item in filterprod" :key = "item.id">
+							<div class="card border-2 shadow">
+								<div class="card-head position-relative">
+									<router-link :to="'/productsingle/'+item.id" class="prodimg">
+										<div style="height: 180px; background-size: cover; background-position: center;"
+											:style = "{backgroundImage: `url(${item.imageUrl})`}"
+											class="prodimg1">
 										</div>
-									</div>
-								</router-link>
-							</div>
-							<div class="card-body">
-								<span class="badge badge-teal float-right ml-2">{{item.category}}</span>
-								<h5 class="card-title">
-									<router-link :to="'/productsingle/'+item.id" class="text-primary" >{{item.title}}</router-link>
-								</h5>
-								<p class="card-text">{{item.content}}</p>
-								<div class="d-flex justify-content-between align-items-baseline">
-									<!-- <div class="h5">2,800 元</div> -->
-									<del class="h6 text-danger">原價: {{item.origin_price}}</del>
-									<div class="h5">特價: {{item.price}}</div>
+										<div class="overlay text-center w-100 h-100 position-absolute">
+											<div class="readmore text-white">
+													看更多
+											</div>
+										</div>
+									</router-link>
 								</div>
-							</div>
+								<div class="card-body">
+									<span class="badge badge-teal float-right ml-2">{{item.category}}</span>
+									<h5 class="card-title">
+										<router-link :to="'/productsingle/'+item.id" class="text-primary" >{{item.title}}</router-link>
+									</h5>
+									<p class="card-text">{{item.content}}</p>
+									<div class="d-flex justify-content-between align-items-baseline">
+										<!-- <div class="h5">2,800 元</div> -->
+										<del class="h6 text-danger">原價: {{item.origin_price}}</del>
+										<div class="h5">特價: {{item.price}}</div>
+									</div>
+								</div>
 								<div class="card-footer d-flex">
 									<button type="button" class="btn btn-cyan w-100 " @click= "addtocart(item.id)">
 										加到購物車
@@ -50,6 +51,7 @@
 								</div>
 							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
