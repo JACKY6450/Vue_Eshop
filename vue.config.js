@@ -1,3 +1,5 @@
 module.exports = {
-  publicPath: '/Vue_Eshop/'
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/Vue_Eshop/' // 為 repo 名稱
+    : '/'
 }
