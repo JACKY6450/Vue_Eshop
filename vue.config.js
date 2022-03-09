@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: 'e_store'
+  publicPath: 'Vue_Eshop'
 }
