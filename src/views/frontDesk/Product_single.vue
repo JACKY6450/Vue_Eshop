@@ -1,8 +1,8 @@
 <template>
 	<div class="prodsingle">
 		<div class="container">
-			<nav aria-label="breadcrumb" class="pt-3">
-				<ul class="breadcrumb bg-white h5 px-2">
+			<nav aria-label="breadcrumb" class="pt-4">
+				<ul class="breadcrumb bg-white h5 p-0">
 					<li class="breadcrumb-item ">
 						<router-link to="/" class="text-dark">Home</router-link>
 					</li>
@@ -67,7 +67,7 @@
 			<h4 class="px-2">您可能也會喜歡</h4>
 			<div class="row px-2">
 				<div class="itemMaybe col-sm-6 col-lg-3 mb-3" v-for = "item in maybelike" :key = "item.id">
-					<a :href = "'/productsingle/'+item.id" class="text-dark text-decoration-none">
+					<router-link class="text-dark text-decoration-none" :to="`/productsingle/${item.id}`">
 						<div class="maybelike card border-0">
 							<img class="card-img-top" :src = "item.imageUrl" height="200px">
 							<div class="card-body" >
@@ -78,7 +78,7 @@
 								</div>
 							</div>
 						</div>
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -171,7 +171,7 @@ export default {
 		},
 		gotoorder(){
 			this.$router.push('/customerorder');
-		}
+		},
 	},
 	created(){
 		const productid = this.$route.params;

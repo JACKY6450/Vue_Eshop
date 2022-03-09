@@ -3,7 +3,7 @@
      <loading :active.sync="isLoading" ></loading>
     <Alert></Alert>
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <a class="navbar-brand px-2 bg-cyan text-light" style="border-radius: 25px;" href="/">
+      <a class="navbar-brand px-2 bg-cyan text-light" style="border-radius: 25px;" href="#" @click.prevent="toHome()">
         Take a rest mall 
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +67,7 @@
       </div>
     </nav>
     <!-- Show Child Component -->
-    <router-view/> 
+    <router-view :key="this.$route.fullPath" /> 
     <!-- Footer -->
     <footer class="page-footer font-small pt-4 bg-cyan text-white">
       <!-- Footer Links -->
@@ -189,9 +189,12 @@ export default {
     removecartitem(id){
       this.$store.dispatch('removecartitem', id);
     },
+    toHome(){
+			this.$router.push('/');
+		},
     gotoorder(){
       this.$router.push('/customerorder');
-    }
+    },
   },
   created(){
     this.getcart();
