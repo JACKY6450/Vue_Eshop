@@ -48,9 +48,13 @@
 							體育運動是對於所有有組織或無組織參與，通過使用、維持或改進體能，為參與者提供娛樂的競技性身體運動的總稱。
 							世界上共有上百種體育運動，其形式多元，有的只需要兩人便可完成，有的則需要多人組隊完成。
 						</p>
-						<a href="/store" class="btn btn-dark w-25" style="border-radius: 10px">
+						<button 
+							class="btn btn-dark w-25" 
+							style="border-radius: 10px"
+							@click="toStore()"
+						>
 							看更多
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -69,9 +73,13 @@
 							為適應不同規模，娛樂發展出各種形式：可以是私人音樂服務中的自選曲庫，也可以適合兩個人的二人宴會，
 							更可以是不分國別膚色、包容萬千觀眾、舞樂恢弘的國際化視聽盛宴。
 						</p>
-						<a href="/store" class="btn btn-dark w-25" style="border-radius: 10px">
+						<button 
+							class="btn btn-dark w-25" 
+							style="border-radius: 10px"
+							@click="toStore()"
+						>
 							看更多
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -88,9 +96,13 @@
 							甜點是西餐正餐的最後一道甜味菜品，也可以說是西方人在餐後食用的甜味食物。可以是水果拼盤、小蛋糕、餡餅、布丁或者冰激凌等，
 							時至今日甜點已徹底傳入東方而且不只是飯後食用，更成為許多喜愛甜點的饕客的美食選擇。
 						</p>
-						<a href="/store" class="btn btn-dark w-25" style="border-radius: 10px">
+						<button 
+							class="btn btn-dark w-25" 
+							style="border-radius: 10px"
+							@click="toStore()"
+						>
 							看更多
-						</a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -133,6 +145,9 @@ export default {
 				if(element.is_enabled) return element;
 			})
 				
+		},
+		toStore(){
+			this.$router.push('/store');
 		}
 	},
 	created(){
