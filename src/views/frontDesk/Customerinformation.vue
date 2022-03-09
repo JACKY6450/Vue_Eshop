@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-md-5 ">
                     <div class="cartlist bg-white shadow-sm border border-cyan" >
-                         <h3 class="pt-3 px-3 mb-0 font-weight-bold">
+                        <h3 class="pt-3 px-3 mb-0 font-weight-bold">
                             購物商品明細
                         </h3>
                         <div class="px-3">
