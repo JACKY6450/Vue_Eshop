@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="dashBoard">
         <loading :active.sync="isLoading" ></loading>
         <Navbar />
         <Alert />
         <div class="container-fluid">
             <div class="row">
                 <Sidebar />
-                <main role="main" class="maincontent col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <main role="main" class="dashCont col-md-9 ml-sm-auto col-lg-10 px-md-4 bg-white">
                     <router-view />
                 </main>
             </div>
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style>
-    .maincontent{
-        background-color: white;
-    }
+.dashCont{
+    min-height: calc(100vh - 48px);
+}
 </style>
