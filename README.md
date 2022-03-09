@@ -1,5 +1,5 @@
 # Take a rest 網路商城
-## 網頁功能
+## 網頁功能 (https://jacky6450.github.io/Vue_Eshop/ "Title") inline link
 ### 前台
 * 主頁-熱銷商品&類別介紹
 * 賣場-商品陳列-商品分類過濾功能
