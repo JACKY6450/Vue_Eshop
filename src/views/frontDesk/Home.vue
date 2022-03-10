@@ -16,7 +16,7 @@
               <i class="fas fa-shopping-cart text-dark" ></i>
               購物車
             </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <div class="dropdown-menu dropdown-menu-right w-100" style="min-width: 25rem" aria-labelledby="dropdownMenuLink">
               <div class="text-center">
                 <i class="fas fa-shopping-cart text-dark" ></i>
                 購物車明細

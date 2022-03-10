@@ -1,7 +1,7 @@
 <template>
     <div class="checkout container py-5">
         <Payprocedure :step = "currentstep"/>
-        <div class="mt-5 px-5 row justify-content-center">
+        <div class="row mt-5 px-5 justify-content-center">
             <form class="col-md-8 bg-white px-0 shadow-sm"  @submit.prevent="payorder()">
                 <h4 class="py-2 px-2 mb-0 bg-cyan text-white" style="border-radius: 5px 5px 0 0">
                     以下為您的訂單資訊
@@ -55,7 +55,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="text-right px-2" v-if="order.is_paid === false">
+                <div class="text-right pr-2 pb-2" v-if="order.is_paid === false">
                     <button class="btn btn-cyan">確認付款去</button>
                 </div>
             </form>

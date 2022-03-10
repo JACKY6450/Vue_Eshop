@@ -2,13 +2,13 @@
 <div class="customerorder">
   <div class="container py-5">
     <Payprocedure :step = "currentstep"/>
-    <div class=" bg-white mt-5 px-2" style="box-shadow: 0px 5px 3px 0px #777777">
+    <div class=" bg-white mt-4 px-2" style="box-shadow: 0px 5px 3px 0px #777777">
       <h4 class="py-3 px-3 mb-0 border-bottom" >
         <i class="fas fa-shopping-cart text-dark" ></i>
         購物車明細
       </h4>
-      <div class="purchaseli bg-white ">
-        <table class="table table-borderless px-2">
+      <div class="purchaseli bg-white overflow-auto">
+        <table class="table table-borderless px-2 text-nowrap">
           <thead>
             <tr class="border-bottom">
                 <th width = "80"></th>

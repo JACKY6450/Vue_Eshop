@@ -2,7 +2,7 @@
 	<div class="prodsingle">
 		<div class="container">
 			<nav aria-label="breadcrumb" class="pt-4">
-				<ul class="breadcrumb bg-white h5 p-0">
+				<ul class="breadcrumb bg-white p-0">
 					<li class="breadcrumb-item ">
 						<router-link to="/" class="text-dark">Home</router-link>
 					</li>
@@ -20,7 +20,7 @@
 				</div>
 				<div class="prodcont col-md-5">
 					<h1 class="text-cyan ">{{product.title}}</h1>
-					<div class="proddescribe " style="height: 90px">
+					<div class="proddescribe " style="height: 90px; overflow-y: auto">
 						<p class="describecont h6">
 								{{product.content}}
 						</p>
@@ -131,17 +131,54 @@ export default {
 		},
 		maybelikehandler(){
 			let arr = [];
+			let maybelike = [];
 			arr = this.products.filter((element) => {
-				if(this.product.title != element.title){
 					if(this.product.category === element.category) return element;
-				}
 			})
-			for(let i=0; i<4; i++){
-				if(arr.length === 0) break;
-				let randomid = Math.floor(Math.random()*arr.length);
-				this.maybelike.push(arr[randomid]);
-				arr.splice(randomid, 1);
+			if((arr.length-1) < 5){
+				arr.forEach((item) => {
+					if(this.product.title !== item.title){
+						maybelike.push(item)
+					}
+				})
 			}
+			else{
+				let productIndex = arr.findIndex((item) => {
+					return this.product.title === item.title
+				})
+				if((productIndex) > 1 && (productIndex) < (arr.length-2)){
+					arr.forEach((item, index) => {
+						if(this.product.title !== item.title){
+							if(Math.abs(productIndex - index) <= 2){
+								maybelike.push(item)
+							}
+						}
+					})
+				}
+				else{
+					if(productIndex <= 1){
+						if(productIndex === 0){ //此商品排最前面的商品
+							maybelike = arr.slice(1, 5);
+						}
+						else{
+							maybelike = arr.slice(0, 5);
+							maybelike.splice(productIndex, 1);
+						}
+					}
+					else
+					if(productIndex >= (arr.length-2)){
+						if(productIndex === (arr.length-1)){ //此商品為排最後面的商品
+							maybelike = arr.slice(productIndex-4, productIndex);
+						}
+						else{
+							maybelike = arr.slice(arr.length-5, arr.length);
+							maybelike.splice(productIndex-1, 1);
+						}
+					}
+				}
+			}
+			console.log('may', maybelike);
+			this.maybelike = [...maybelike];
 		},
 		addcount(num){
 				if((this.count+num)<1) return;
@@ -199,13 +236,13 @@ export default {
 		height: 370px;
 		
 	}
-	.describecont{
+	/* .describecont{
 		display: -webkit-box;
 		-webkit-line-clamp: 4;
 		-webkit-box-orient: vertical;
 		white-space: normal;
 		overflow: hidden;
-	}
+	} */
 	#countchoice{
 		border-radius: 8px;
 	}
