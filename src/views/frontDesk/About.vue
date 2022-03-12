@@ -4,7 +4,7 @@
 		<div class="container">
 			<h1 class="text-center mb-3">熱銷商品</h1>
 			<div class="row justify-content-between">
-				<div class="sellitem col-md-3" v-for = "item in popsell" :key = "item.id">
+				<div class="sellitem col-md-3 mb-3" v-for = "item in popsell" :key = "item.id">
 					<router-link :to="'/productsingle/'+item.id" class="text-dark">
 						<div class="card">
 							<img class="card-img-top" :src = "item.imageUrl" height="200px">
@@ -19,7 +19,7 @@
 					</router-link>
 				</div>
 			</div>
-			<div class="aboutus text-center mt-5" data-aos="fade-down">
+			<div class="aboutus text-center mt-3" data-aos="fade-down">
 				<h1>About Us</h1>
 				<p class="lead font-weight-bold" style="font-size: 20px">
 					運動、娛樂、美食甜點本店主打的商品，休息放鬆時最需要的精神糧食，現代忙碌的生活時間變的零碎，
