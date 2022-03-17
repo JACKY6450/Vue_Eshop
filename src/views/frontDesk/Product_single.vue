@@ -35,12 +35,12 @@
 						<div class="countnumber d-flex align-items: center" style="height: 40px">
 							<button class="btn btn-outline-cyan " :class = "{'disabled' : count === 1}" 
 								style="border-radius: 5px 0px 0px 5px;" @click= "addcount(-1)">
-									<i class="fa fa-minus" aria-hidden="true"></i>
+								<i class="fa fa-minus" aria-hidden="true"></i>
 							</button>
 							<input type="number" class="border border-cyan text-center h5"  style="width: 160px; height:100%"
-							:value= "count">
+								:value= "count">
 							<button class="btn btn-outline-cyan" style="border-radius: 0px 5px 5px 0px;" @click= "addcount(1)">
-									<i class="fa fa-plus" aria-hidden="true"></i>
+								<i class="fa fa-plus" aria-hidden="true"></i>
 							</button>
 						</div>
 					</div>
@@ -90,20 +90,20 @@
 export default {
 	data(){
 		return{
-				product: {},
-				products: [],
-				maybelike: [],
-				count: 1,
-				// number: 1
+			product: {},
+			products: [],
+			maybelike: [],
+			count: 1,
+			// number: 1
 		}
 	},
 	computed:{
 		cart(){
-				return this.$store.state.cart;
+			return this.$store.state.cart;
 		},
 		total(){
-				// console.log(this.count);
-				return this.count * this.product.price;
+			// console.log(this.count);
+			return this.count * this.product.price;
 		}
 	},
 	methods:{
@@ -177,7 +177,7 @@ export default {
 					}
 				}
 			}
-			console.log('may', maybelike);
+			// console.log('may', maybelike);
 			this.maybelike = [...maybelike];
 		},
 		addcount(num){
